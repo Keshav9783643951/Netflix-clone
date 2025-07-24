@@ -25,8 +25,8 @@ const TitleCards = ({title, category}) => {
   }
 
   useEffect(()=>{
-
-    fetch(`https://api.themoviedb.org/3/movie/${category?category:"now_playing"}?language=en-US&page=1`, options)
+    const api_key=process.env.API_KEY;
+    fetch(api_key, options)
     .then(response => response.json())
     .then(response => setApiData(response.results))
     .catch(err => console.error(err));
